@@ -48,11 +48,27 @@ int main(void)
   /* Enable clock for GPIO port A*/
 
 	//type your code for GPIOA clock enable here:
+	
+	/* Enable clock for GPIO port A*/
+  *((volatile uint32_t *) (uint32_t)(0x40021000 + 0x00000014U)) |= (uint32_t)(1 << 18);			//??????????????????
 
 
   /* GPIOA pin 3 and 4 setup */
 
 	//type your code for GPIOA pins setup here:
+	
+	/*GPIOB pin 3 and 6 setup*/
+    /*GPIO MODER register*/
+    //Set mode for pin 4 - LED
+  	ADDRESS &= ~(uint32_t)(0x4 << 8);
+  	ADDRESS |= (uint32_t)(1 << 8);
+    
+    //Set mode for pin 3 - TL
+  	ADDRESS &= ~(uint32_t)(0x3 << 6);
+  	ADDRESS |= (uint32_t)(0 << 6);
+        
+    //Set mode for pin 6
+    //*((volatile uint32_t *)((uint32_t)0x48000000)) &= ~(uint32_t)(0x4 << 12);
 
 
   while (1)
