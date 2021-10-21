@@ -121,7 +121,7 @@ uint8_t num = 5;
 
   while (1)
   {
-	  a = edgeDetect(BUTTON_GET_STATE, num);
+	  edge = edgeDetect(BUTTON_GET_STATE, num);
 	  if(edge == RISE)
 	  {
 		  // 0.25s delay
