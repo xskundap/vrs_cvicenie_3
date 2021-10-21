@@ -43,10 +43,6 @@ extern "C" {
 #endif /* USE_FULL_ASSERT */
 
 /* USER CODE END EM */
- 
-#define ADDRESS					*((volatile uint32_t *)((uint32_t)0x48000000))
-#define LED_ON					*((volatile uint32_t *)((uint32_t)(0x48000000 + 0x18U))) |= (1 << 4)   	//GPIOB pin 4
-#define LED_OFF					*((volatile uint32_t *)((uint32_t)0x48000000 + 0x28U)) |= (1 << 4);		//GPIOB pin 4
 
 /* Exported functions prototypes ---------------------------------------------*/
 void Error_Handler(void);
