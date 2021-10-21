@@ -116,13 +116,13 @@ int main(void)
   //Set no pull for GPIOA pin 4
   GPIOA_PUPDR_REG &= ~(0x3 << 8);
 
-EDGE_TYPE a;
-uint8_t b = 5;
+EDGE_TYPE edge;
+uint8_t num = 5;
 
   while (1)
   {
-	  a = edgeDetect(BUTTON_GET_STATE, b);
-	  if(a == RISE)
+	  a = edgeDetect(BUTTON_GET_STATE, num);
+	  if(edge == RISE)
 	  {
 		  // 0.25s delay
 		  //LL_mDelay(250);
@@ -131,7 +131,7 @@ uint8_t b = 5;
 		  //LL_mDelay(250);
 		  //LED_OFF;
 	  }
-	  else if(a == FALL)
+	  else if(edge == FALL)
 	  {
 		  // 1s delay
 		  //LL_mDelay(1000);
