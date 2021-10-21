@@ -39,7 +39,7 @@ enum EDGE_TYPE edgeDetect(uint8_t pin_state, uint8_t samples){
     if(start == 1){
 
         state = 0;
-	start = 0;
+		start = 0;
     }
     
     if(pin_state == 1 && before == 0){
