@@ -57,7 +57,7 @@ int main(void)
 
 	//type your code for GPIOA pins setup here:
 	
-  *GPIO MODER register*/
+  /*GPIO MODER register*/
   //Set mode for pin 3
   ((volatile uint32_t )((uint32_t)0x48000000)) &= ~(uint32_t)(0x3 << 8);
   ((volatile uint32_t )((uint32_t)0x48000000)) |= (uint32_t)(1 << 8);
