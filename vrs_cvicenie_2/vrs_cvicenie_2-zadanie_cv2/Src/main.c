@@ -50,7 +50,7 @@ int main(void)
 	//type your code for GPIOA clock enable here:
 	
 	/* Enable clock for GPIO port A*/
-  *((volatile uint32_t *) (RCC_BASE_ADDR + 0x00000014U)) |= (uint32_t)(1 << 17);			//??????????????????
+  RCC_BASE_ADDR |= (uint32_t)(1 << 17);
 
 
   /* GPIOA pin 3 and 4 setup */
