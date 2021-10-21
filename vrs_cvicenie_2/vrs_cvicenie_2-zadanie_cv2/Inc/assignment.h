@@ -47,6 +47,6 @@
 
 #define BUTTON_GET_STATE		!(((volatile uint32_t )((uint32_t)(0x48000000 + 0x10U))) & (1 << 5))   / Add BUTTON_GET_STATE implementation here. /
 
-#define ADDRESS           
+#define ADDRESS           ((volatile uint32_t )((uint32_t)0x48000000))
 
 #endif /* ASSIGNMENT_H_ */
