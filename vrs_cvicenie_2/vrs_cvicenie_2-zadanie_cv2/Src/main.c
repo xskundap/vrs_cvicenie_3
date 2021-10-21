@@ -41,17 +41,20 @@ enum EDGE_TYPE edgeDetect(uint8_t pin_state, uint8_t samples){
         state = 0;
 		start = 0;
     }
-    
-    if(pin_state == 1 && before == 0){
+	
+    if((num_1 >= samples) || (num_0 >= samples)){
 
-        state = 1;
+	    if(pin_state == 1 && before == 0){
+
+		state = 1;
+	    }
+	    else if(pin_state == 0 && before == 1){
+
+		state = 2;
+	    }
+
+	    before = pin_state;
     }
-    else if(pin_state == 0 && before == 1){
-
-        state = 2;
-    }
-
-    before = pin_state;
 
     return state;
 
@@ -119,7 +122,7 @@ uint8_t b = 5;
   while (1)
   {
 	  a = edgeDetect(BUTTON_GET_STATE, b);
-	  if(a == 'RISE')
+	  if(a == RISE)
 	  {
 		  // 0.25s delay
 		  //LL_mDelay(250);
@@ -128,7 +131,7 @@ uint8_t b = 5;
 		  //LL_mDelay(250);
 		  //LED_OFF;
 	  }
-	  else if(a == 'FALL')
+	  else if(a == FALL)
 	  {
 		  // 1s delay
 		  //LL_mDelay(1000);
