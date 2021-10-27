@@ -27,18 +27,18 @@ enum EDGE_TYPE state_edge = 0;		// informácia o poslednej hrane
 
 enum EDGE_TYPE edgeDetect(uint8_t pin_state, uint8_t samples){
       if(pin_state == 1){
-	if(num_0 < samples && num_0 > 0 && state != 2){
-              state = 0;
-          }
-        num_1 = num_1 + 1;
-        num_0 = 0;
-      }
+		if(num_0 < samples && num_0 > 0 && state != 2){
+		      state = 0;
+		  }
+	num_1 = num_1 + 1;
+	num_0 = 0;
+	      }
       else{
-	if(num_1 < samples && num_1 > 0 && state != 1){
-              state = 0;
-          }
-        num_0 = num_0 + 1;
-        num_1 = 0;
+		if(num_1 < samples && num_1 > 0 && state != 1){
+		      state = 0;
+		  }
+	num_0 = num_0 + 1;
+	num_1 = 0;
 
     }
 
