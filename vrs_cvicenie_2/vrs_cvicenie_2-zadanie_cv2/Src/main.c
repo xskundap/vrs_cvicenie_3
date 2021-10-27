@@ -23,13 +23,20 @@
 #include "assignment.h"
 
 int num_1 = 0, num_0 = 0, before = 0, state = 0, start = 1;
+enum EDGE_TYPE state_edge = 0;
 
 enum EDGE_TYPE edgeDetect(uint8_t pin_state, uint8_t samples){
       if(pin_state == 1){
+	if(num_0 < samples && num_0 > 0 && state != 2){
+              state = 0;
+          }
         num_1 = num_1 + 1;
         num_0 = 0;
       }
       else{
+	if(num_1 < samples && num_1 > 0 && state != 1){
+              state = 0;
+          }
         num_0 = num_0 + 1;
         num_1 = 0;
 
@@ -47,10 +54,12 @@ enum EDGE_TYPE edgeDetect(uint8_t pin_state, uint8_t samples){
 	    if(pin_state == 1 && before == 0){
 
 		state = 1;
+		state_edge = 1;
 	    }
 	    else if(pin_state == 0 && before == 1){
 
 		state = 2;
+		state_edge = 2;
 	    }
 
 	    before = pin_state;
