@@ -42,7 +42,6 @@ enum EDGE_TYPE edgeDetect(uint8_t pin_state, uint8_t samples){
 
     }
 
-    //if(pin_state == 0 && before == 0){
     if(start == 1){
 
         state = 0;
@@ -110,7 +109,7 @@ int main(void)
   GPIOA_MODER_REG &= ~(uint32_t)(0x3 << 8);
   GPIOA_MODER_REG |= (uint32_t)(1 << 8);
   //Set mode for pin 3
-  GPIOA_MODER_REG &= ~(uint32_t)(0x3 << 10);
+  GPIOA_MODER_REG &= ~(uint32_t)(0x3 << 6);
 
   /*GPIO OTYPER register*/
   GPIOA_OTYPER_REG &= ~(1 << 4);
@@ -121,7 +120,7 @@ int main(void)
 
   /*GPIO PUPDR register, reset*/
   //Set pull up for GPIOA pin 3 (input)
-  GPIOA_PUPDR_REG |= (1 << 10);
+  GPIOA_PUPDR_REG |= (1 << 6);
   //Set no pull for GPIOA pin 4
   GPIOA_PUPDR_REG &= ~(0x3 << 8);
 
