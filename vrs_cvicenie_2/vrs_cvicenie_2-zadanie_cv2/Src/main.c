@@ -23,7 +23,7 @@
 #include "assignment.h"
 
 int num_1 = 0, num_0 = 0, before = 0, state = 0, start = 1;
-enum EDGE_TYPE state_edge = 0;
+enum EDGE_TYPE state_edge = 0;		// informácia o poslednej hrane
 
 enum EDGE_TYPE edgeDetect(uint8_t pin_state, uint8_t samples){
       if(pin_state == 1){
