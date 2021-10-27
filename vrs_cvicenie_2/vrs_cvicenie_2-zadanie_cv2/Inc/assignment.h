@@ -45,7 +45,7 @@
 #define LED_ON					*((volatile uint32_t *)((uint32_t)(0x48000000 + 0x18U))) |= (1 << 4)   	//GPIOA pin 4
 #define LED_OFF					*((volatile uint32_t *)((uint32_t)0x48000000 + 0x28U)) |= (1 << 4)		//GPIOA pin 4
 
-#define BUTTON_GET_STATE		!(GPIOA_IDR_REG & (1 << 5))   /* Add BUTTON_GET_STATE implementation here. */
+#define BUTTON_GET_STATE		!(GPIOA_IDR_REG & (1 << 3))   /* Add BUTTON_GET_STATE implementation here. */
 
 typedef enum EDGE_TYPE{
   NONE=0,  
